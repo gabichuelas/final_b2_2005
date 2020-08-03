@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # resources :airlines, only: [:index]
 
   resources :flights, only: [:show]
+  resources :passengers, only: [:show]
 end
