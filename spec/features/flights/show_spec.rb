@@ -25,7 +25,7 @@ RSpec.describe 'As a visitor' do
       #
       visit "/flights/#{@flight1.id}"
 
-      expect(page).to have_content('Flight: 1727')
+      expect(page).to have_content('1727')
       expect(page).to have_content('Date: 08/03/2020')
       expect(page).to have_content('Departure: Denver')
       expect(page).to have_content('Time: 7:00 PM EST')
