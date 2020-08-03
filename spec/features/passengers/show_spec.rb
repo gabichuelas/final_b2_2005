@@ -57,11 +57,12 @@ RSpec.describe 'As a visitor' do
       select "#{@flight4.number}", :from => "flights"
       click_on('Add Flight')
 
+      expect(current_path).to eq("/passengers/#{@gaby.id}")
+      
       within('.flight-list') do
         expect(page).to have_content('1234')
       end
 
-      # no longer shows flight that was just added in the dropdown
       within("#flights") do
         expect(page).to_not have_content(@flight4.number)
       end
