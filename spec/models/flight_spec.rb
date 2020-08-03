@@ -29,11 +29,11 @@ RSpec.describe Flight do
     end
 
     it '#count_of_adults' do
-      expect(@flight1.count_of_adults).to eq('4')
+      expect(@flight1.count_of_adults).to eq(4)
     end
 
     it '#count_of_minors' do
-      expect(@flight1.count_of_minors).to eq('1')
+      expect(@flight1.count_of_minors).to eq(1)
     end
   end
 end
