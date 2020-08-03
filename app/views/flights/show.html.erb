@@ -6,12 +6,16 @@
 <p>Departure: <%= @flight.departure %></p>
 <p>Arrival: <%= @flight.arrival %></p>
 
-<h3>Passengers</h3>
-<p>Adult Passengers: <%= @flight.count_of_adults %></p>
-<p>Minors: <%= @flight.count_of_minors %></p>
-
+<h3>Adult Passengers: <%= @flight.adults.count %></h3>
 <ul>
-  <% @flight.passengers.each do |passenger| %>
-    <li><%= passenger.name %></li>
+  <% @flight.adults.each do |adult| %>
+    <li><%= adult.name %></li>
+  <% end %>
+</ul>
+
+<h3>Minors: <%= @flight.minors.count %></h3>
+<ul>
+  <% @flight.minors.each do |minor| %>
+    <li><%= minor.name %></li>
   <% end %>
 </ul>

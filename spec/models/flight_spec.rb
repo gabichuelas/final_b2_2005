@@ -28,12 +28,12 @@ RSpec.describe Flight do
       expect(@flight1.airline_name).to eq('Frontier')
     end
 
-    it '#count_of_adults' do
-      expect(@flight1.count_of_adults).to eq(4)
+    it '#adults' do
+      expect(@flight1.adults).to eq([@gaby, @robin, @ruthie, @young_adult])
     end
 
-    it '#count_of_minors' do
-      expect(@flight1.count_of_minors).to eq(1)
+    it '#minors' do
+      expect(@flight1.minors).to eq([@child])
     end
   end
 end
