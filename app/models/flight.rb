@@ -7,11 +7,17 @@ class Flight < ApplicationRecord
     self.airline.name
   end
 
-  def count_of_adults
-    passengers.where('age >= ?', 18).count
+  def adults
+    # passengers.where('age >= ?', 18).count
+    # Decided to just pull the rows, so I can get count or other info
+    # from the passenger object
+    passengers.where('age >= ?', 18)
   end
 
-  def count_of_minors
-    passengers.where('age < ?', 18).count
+  def minors
+    # passengers.where('age < ?', 18).count
+    # Decided to just pull the rows, so I can get count or other info
+    # from the passenger object
+    passengers.where('age < ?', 18)
   end
 end
