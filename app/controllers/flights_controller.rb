@@ -1,4 +1,5 @@
 class FlightsController < ApplicationController
   def show
-  end 
+    @flight = Flight.find(params[:id])
+  end
 end
