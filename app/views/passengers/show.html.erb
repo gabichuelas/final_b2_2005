@@ -5,8 +5,24 @@
 <h3><%= @passenger.name %></h3>
 
 <h3>Upcoming Flights</h3>
-<ul>
+<ul class='flight-list'>
   <% @passenger.flights.each do |flight| %>
     <li><%= link_to "#{flight.number}", "/flights/#{flight.id}" %></li>
   <% end %>
 </ul>
+
+<%= form_tag "/flight_passengers?passenger=#{@passenger.id}" do %>
+  <label for="flights">Add a flight:</label>
+  <br>
+  <select name="flights" id="flights">
+    <option value="" disabled selected>Select Flight Number</option>
+    <% @flights.each do |flight| %>
+      <% if !@passenger.flights.include?(flight) %>
+        <option value=<%= flight.id %>><%= flight.number %></option>
+      <% else %>
+      <% end %>
+    <% end %>
+  </select>
+  <br>
+  <%= submit_tag 'Add Flight' %>
+<% end %>
