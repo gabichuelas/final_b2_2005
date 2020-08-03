@@ -2,7 +2,7 @@ RSpec.describe 'As a visitor' do
 
   before :each do
     @frontier = Airline.create(name: 'Frontier')
-    @flight1 = @frontier.flights.create(number: '1727', date: '08/03/20', time: '7:00 PM EST', departure: 'Denver', arrival: 'Reno')
+    @flight1 = @frontier.flights.create(number: '1727', date: '08/03/20', time: '7:00 PM MT', departure: 'Denver', arrival: 'Reno')
 
     @gaby = Passenger.create(name: 'Gaby', age: 30)
     @robin = Passenger.create(name: 'Robin', age: 37)
@@ -28,7 +28,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content('1727')
       expect(page).to have_content('Date: 08/03/20')
       expect(page).to have_content('Departure: Denver')
-      expect(page).to have_content('Time: 7:00 PM EST')
+      expect(page).to have_content('Time: 7:00 PM MT')
       expect(page).to have_content('Arrival: Reno')
     end
 
