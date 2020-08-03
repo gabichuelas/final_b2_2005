@@ -1,3 +1,5 @@
+# flights#show_spec
+
 RSpec.describe 'As a visitor' do
 
   before :each do
@@ -8,11 +10,14 @@ RSpec.describe 'As a visitor' do
     @robin = Passenger.create(name: 'Robin', age: 37)
     @ruthie = Passenger.create(name: 'Ruthie', age: 27)
     @child = Passenger.create(name: 'Strange Child', age: 12)
+    @young_adult = Passenger.create(name: 'I\'m Legal', age: 18)
+
 
     FlightPassenger.create(flight_id: @flight1.id, passenger_id: @gaby.id)
     FlightPassenger.create(flight_id: @flight1.id, passenger_id: @robin.id)
     FlightPassenger.create(flight_id: @flight1.id, passenger_id: @ruthie.id)
     FlightPassenger.create(flight_id: @flight1.id, passenger_id: @child.id)
+    FlightPassenger.create(flight_id: @flight1.id, passenger_id: @young_adult.id)
   end
 
   describe 'When I visit a flights show page' do
@@ -45,6 +50,19 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content('Robin')
       expect(page).to have_content('Ruthie')
       expect(page).to have_content('Strange Child')
+      expect(page).to have_content('I\'m Legal')
+    end
+
+    it 'I see the number of minors on the flight (minors are any passengers that are under 18)' do
+      #
+      visit "/flights/#{@flight1.id}"
+      expect(page).to have_content('Minors: 1')
+    end
+
+    it 'And I see the number of adults on the flight (adults are any passengers that are 18 or older)' do
+      #
+      visit "/flights/#{@flight1.id}"
+      expect(page).to have_content('Adult Passengers: 4')
     end
   end
 end

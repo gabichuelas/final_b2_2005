@@ -1,4 +1,4 @@
-# Passengers#show_spec
+# passengers#show_spec
 
 RSpec.describe 'As a visitor' do
 
@@ -58,7 +58,7 @@ RSpec.describe 'As a visitor' do
       click_on('Add Flight')
 
       expect(current_path).to eq("/passengers/#{@gaby.id}")
-      
+
       within('.flight-list') do
         expect(page).to have_content('1234')
       end
