@@ -2,7 +2,7 @@ RSpec.describe 'As a visitor' do
 
   before :each do
     @frontier = Airline.create(name: 'Frontier')
-    @flight1 = @frontier.flights.create(number: '1727', date: '08/03/20', time: '7:00 PM EST', departure_city: 'Denver', arrival_city: 'Reno')
+    @flight1 = @frontier.flights.create(number: '1727', date: '08/03/20', time: '7:00 PM EST', departure: 'Denver', arrival: 'Reno')
 
     @gaby = Passenger.create(name: 'Gaby', age: 30)
     @robin = Passenger.create(name: 'Robin', age: 37)
