@@ -40,6 +40,8 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'irbtools'
+  
 end
 
 group :development do
